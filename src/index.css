@@ -1,7 +1,36 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
   margin: auto;
   max-width: 38rem;
   padding: 2rem;
 }
+
+.titlebar {
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+}
+
+/**-webkit-app-region: drag是可拖动的样式**/
+
+/* <body style="-webkit-app-region: drag"> */
+/*       <section style="-webkit-app-region: drag"> */
+/*           <!--html代码--> */
+/*           <h1>Hello World!</h1> */
+/*       </section> */
+/**/
+/*       <section style="-webkit-app-region: no-drag"> */
+/*           <button type="button" id="maxbt">max</button> */
+/*           <button type="button" id="minbt">>min</button> */
+/*           <button type="button" id="closebt">>close</button> */
+/*       </section> */
+/*     <!-- All of the Node.js APIs are available in this renderer process. --> */
+/*     We are using Node.js <script>document.write(process.versions.node)</script>, */
+/*     Chromium <script>document.write(process.versions.chrome)</script>, */
+/*     and Electron <script>document.write(process.versions.electron)</script>. */
+/**/
+/*     <script>     // require('electron').ipcRenderer; */
+/*       // You can also require other files to run in this process */
+/*       require('./renderer.js') */
+/*     </script> */
+/*   </body> */

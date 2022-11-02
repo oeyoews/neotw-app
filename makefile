@@ -5,6 +5,9 @@ build:
 	@curl $(download-html)/$(index) -o src/$(index)
 	@yarn make ## need install dpkg
 
+dev:
+	@yarn start
+
 arch:
 	@cp PKGBUILD out/make/deb/x64/; cd out/make/deb/x64/; makepkg  # local based arch
 
