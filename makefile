@@ -1,4 +1,8 @@
+download-html = https://oeyoews.github.io/neotw
+index = index.html
+
 build:
+	@curl $(download-html)/$(index) -o src/$(index)
 	@yarn make ## need install dpkg
 
 arch:
