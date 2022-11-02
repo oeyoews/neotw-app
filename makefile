@@ -1,5 +1,6 @@
 download-html = https://oeyoews.github.io/neotw
 index = index.html
+deb-dir = out/make/deb/x64
 
 build:
 	@curl $(download-html)/$(index) -o src/$(index)
@@ -9,10 +10,10 @@ dev:
 	@yarn start
 
 arch:
-	@cp PKGBUILD out/make/deb/x64/; cd out/make/deb/x64/; makepkg  # local based arch
+	@cp PKGBUILD $(deb-dir); cd $(deb-dir); makepkg  # local based arch
 
 install:
-	@cd out/make/deb/x64; sudo pacman -U *.zst
+	@cd $(deb-dir); sudo pacman -U *.zst
 
 update:
 	@make arch; make install
