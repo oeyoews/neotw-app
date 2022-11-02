@@ -1,23 +1,27 @@
-module.exports = {
-  packagerConfig: {},
+const packageJson = require("./package.json");
+
+const { version, description } = packageJson;
+
+const config = {
+  packagerConfig: {
+    name: "Neotw",
+    executableName: "Neotw",
+  },
   rebuildConfig: {},
   makers: [
-    {
-      name: "@electron-forge/maker-squirrel",
-      config: {},
-    },
-    {
-      name: "@electron-forge/maker-zip",
-      platforms: ["darwin"],
-    },
+    // {
+    //   name: "@electron-forge/maker-zip",
+    // },
     {
       name: "@electron-forge/maker-deb",
       platforms: ["linux"],
-      config: {},
-    },
-    {
-      name: "@electron-forge/maker-rpm",
-      config: {},
+      config: {
+        options: {
+          // icon: "src/static/icon/icon.png",
+        },
+      },
     },
   ],
 };
+
+module.exports = config;
