@@ -4,17 +4,9 @@ const { version, description } = packageJson;
 
 const config = {
   makers: [
-    {
-      name: "@electron-forge/maker-zip",
-    },
-    {
-      name: "@reforged/maker-appimage",
-      config: {
-        options: {
-          icon: "src/static/icon/1.png",
-        },
-      },
-    },
+    // {
+    //   name: "@electron-forge/maker-zip",
+    // },
     {
       name: "@electron-forge/maker-deb",
       platforms: ["linux"],
@@ -22,7 +14,17 @@ const config = {
         options: {
           maintainer: "oeyoews",
           homepage: "https://github.com/oeyoews",
-          icon: "src/static/icon/1.png",
+          icon: "src/static/images/icon.ico",
+        },
+      },
+    },
+    {
+      name: "@reforged/maker-appimage",
+      config: {
+        options: {
+          maintainer: "oeyoews",
+          homepage: "https://github.com/oeyoews",
+          icon: "src/static/images/icon.ico",
         },
       },
     },
