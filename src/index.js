@@ -30,7 +30,7 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   // mainWindow.loadURL("https://bing.com");
-  mainWindow.loadFile(path.join(__dirname, "test.html"));
+  mainWindow.loadFile(path.join(__dirname, "index.html"));
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
