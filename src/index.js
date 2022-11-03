@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, Tray, Menu } = require("electron");
 const path = require("path");
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -9,18 +9,28 @@ if (require("electron-squirrel-startup")) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    frame: false,
-    transparent: true,
-    titleBarStyle: "hidden",
+    // frame: false,
+    // transparent: true,
     width: 1200,
     height: 800,
+    center: true, // 是否出现在屏幕居中的位置
+    useContentSize: true,
+    frame: true, //设置为 false 时可以创建一个无边框窗口
+    resizable: true, //窗口是否可以改变尺寸
+    autoHideMenuBar: true, //是否隐藏菜单栏
+    // backgroundColor: "#fff", // 窗口的背景颜色为十六进制值
+    titleBarStyle: "hidden", //窗口标题栏的样式
+    //网页功能的设置
+    // devTools: true, //是否开启 DevTools
+    // webSecurity: false//是否禁用同源策略
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, "index.html"));
+  // mainWindow.loadURL("https://bing.com");
+  mainWindow.loadFile(path.join(__dirname, "test.html"));
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
@@ -30,6 +40,51 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on("ready", createWindow);
+
+let tray = null;
+app.whenReady().then(() => {
+  var trayMenuTemplate = [
+    {
+      label: "打开",
+      click: () => {
+        mainWindow.show();
+      },
+    },
+    {
+      label: "退出",
+      click: () => {
+        app.quit();
+        app.quit(); //因为程序设定关闭为最小化，所以调用两次关闭，防止最大化时一次不能关闭的情况
+      },
+    },
+  ];
+
+  tray = new Tray("static/images/icon.ico");
+  /* const contextMenu = Menu.buildFromTemplate([
+    { label: "Item2", type: "radio" },
+    {
+      label: "exit",
+      click: () => {
+        win.destroy();
+      },
+    },
+  ]); */
+  // contextMenu.items[1].checked = false;
+  tray.setContextMenu(contextMenu);
+  tray.setToolTip("neotw-app");
+  tray.on("click", function () {
+    mainWindow.show();
+  });
+  tray.on("right-click", () => {
+    appTray.popUpContextMenu(trayMenuTemplate);
+  });
+  /* tray.on("click", () => {
+    // eslint-disable-next-line no-unused-expressions
+    win.isVisible() ? win.hide() : win.show();
+    // eslint-disable-next-line no-unused-expressions
+    win.isVisible() ? win.setSkipTaskbar(false) : win.setSkipTaskbar(true);
+  }); */
+});
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
