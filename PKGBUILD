@@ -7,7 +7,7 @@ arch=('x86_64')
 url=""
 # license=('custom:neovim')
 # conflicts=("neovim" "nvim")
-filename="neotw-app_VERSION_amd64.deb"
+filename="neotw-app_${pkgver}_amd64.deb"
 source=("$filename")
 md5sums=('SKIP')
 
