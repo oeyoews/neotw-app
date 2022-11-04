@@ -34,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Make Linux
+      - name: Make Package
         run: yarn make
 
       - name: Create Release
