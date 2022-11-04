@@ -1,10 +1,10 @@
 - [ ] dele dev tools
 - [ ] use dist folder
-- [-] add .desktop file
+- [x] add .desktop file
 - [-] customize border window
-- [-] tray
-- [-] support exe
+- [x] tray
+- [x] support exe
 - [-] https://segmentfault.com/q/1010000022293025
 - [-] tmp folder
-- [-] docs for linux
-- [-] message
+- [x] docs for linux
+- [x] message

@@ -1,3 +1,4 @@
+// https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
 const NOTIFICATION_TITLE = "neotw-app";
 const NOTIFICATION_BODY = "🛸 Hello, neotw";
 // const CLICK_MESSAGE = "Notification clicked!";
