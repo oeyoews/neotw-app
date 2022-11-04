@@ -1,8 +1,8 @@
 name: Release App
 
 on:
-  schedule:
-    - cron: "00 16 * * *"
+  # schedule:
+  #   - cron: "00 16 * * *"
   push:
     tags:
       - "v*.*.*"
@@ -10,11 +10,11 @@ on:
     branches:
       - dev
   workflow_dispatch:
-    inputs:
-      tag_name:
-        description: "Tag name for release"
-        required: false
-        default: nightly
+    # inputs:
+    #   tag_name:
+    #     description: "Tag name for release"
+    #     required: false
+    #     default: nightly
 
 concurrency:
   group: release-ci-group
@@ -51,6 +51,8 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
+        # if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.event.inputs.tag_name != 'nightly')
+        # https://github.com/neovim/neovim/blob/234b8c5f3d57294dda06dbc6c1760e5983bd2c19/.github/workflows/release.yml#L264
         with:
           draft: false
           files: out/make/**/*
