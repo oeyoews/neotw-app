@@ -4,7 +4,7 @@ const { version, description } = packageJson;
 
 const config = {
   makers: [
-    /* {
+    {
       name: "@electron-forge/maker-zip",
     },
     {
@@ -28,7 +28,7 @@ const config = {
           icon: "src/static/images/icon.ico",
         },
       },
-    }, */
+    },
     {
       name: "@electron-forge/maker-deb",
       platforms: ["linux"],
