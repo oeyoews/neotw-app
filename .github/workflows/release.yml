@@ -35,7 +35,7 @@ jobs:
         run: yarn
 
       - name: Make Package
-        run: yarn make && make win
+        run: yarn make
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
