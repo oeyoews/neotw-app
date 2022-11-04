@@ -3,7 +3,7 @@ name: Release App
 on:
   push:
     branches:
-      - main
+      - dev
 
 concurrency:
   group: release-ci-group
