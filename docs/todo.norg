@@ -21,3 +21,4 @@ version: 0.0.15
 - [x] docs for linux
 - [x] message
 - [-] resolution for different dpi
+- [-] not support modified
