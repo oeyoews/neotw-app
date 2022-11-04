@@ -45,13 +45,13 @@ let tray = null;
 app.whenReady().then(() => {
   var trayMenuTemplate = [
     {
-      label: "打开",
+      label: " open",
       click: () => {
         mainWindow.show();
       },
     },
     {
-      label: "退出",
+      label: " exit",
       click: () => {
         app.quit();
         app.quit(); //因为程序设定关闭为最小化，所以调用两次关闭，防止最大化时一次不能关闭的情况
@@ -60,6 +60,7 @@ app.whenReady().then(() => {
   ];
 
   tray = new Tray("static/images/icon.ico");
+  const contextMenu = Menu.buildFromTemplate(trayMenuTemplate);
   /* const contextMenu = Menu.buildFromTemplate([
     { label: "Item2", type: "radio" },
     {
@@ -72,18 +73,6 @@ app.whenReady().then(() => {
   // contextMenu.items[1].checked = false;
   tray.setContextMenu(contextMenu);
   tray.setToolTip("neotw-app");
-  tray.on("click", function () {
-    mainWindow.show();
-  });
-  tray.on("right-click", () => {
-    appTray.popUpContextMenu(trayMenuTemplate);
-  });
-  /* tray.on("click", () => {
-    // eslint-disable-next-line no-unused-expressions
-    win.isVisible() ? win.hide() : win.show();
-    // eslint-disable-next-line no-unused-expressions
-    win.isVisible() ? win.setSkipTaskbar(false) : win.setSkipTaskbar(true);
-  }); */
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common

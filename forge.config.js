@@ -4,12 +4,23 @@ const { version, description } = packageJson;
 
 const config = {
   makers: [
-    // {
-    //   name: "@electron-forge/maker-zip",
-    // },
+    /* {
+      name: "@electron-forge/maker-zip",
+    },
     {
-      name: "@electron-forge/maker-deb",
-      platforms: ["linux"],
+      name: "@rabbitholesyndrome/electron-forge-maker-portable",
+      platforms: ["win32"],
+      config: {
+        appId: "neotw-appp",
+      },
+    },
+    {
+      name: "@electron-forge/maker-squirrel",
+      platforms: ["win32"],
+      config: {},
+    },
+    {
+      name: "@reforged/maker-appimage",
       config: {
         options: {
           maintainer: "oeyoews",
@@ -17,9 +28,10 @@ const config = {
           icon: "src/static/images/icon.ico",
         },
       },
-    },
+    }, */
     {
-      name: "@reforged/maker-appimage",
+      name: "@electron-forge/maker-deb",
+      platforms: ["linux"],
       config: {
         options: {
           maintainer: "oeyoews",

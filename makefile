@@ -17,3 +17,7 @@ install:
 
 update:
 	@make arch; make install
+
+win:
+	# --arch=arm64 --out ./package
+	@yarn electron-forge make --platform=win32
