@@ -33,16 +33,18 @@ const createWindow = () => {
 
   const trayMenuTemplate = [
     {
-      label: " about",
+      label: " About",
+      icon: __dirname + "/static/images/user.png",
       click: () => {},
     },
     {
-      label: " setup",
+      label: " Setup",
       icon: __dirname + "/static/images/icon.ico",
       click: () => {},
     },
     {
-      label: " toggle",
+      label: " Toggle",
+      icon: __dirname + "/static/images/contrast.png",
       // click: () => {
       //   mainWindow.show();
       // },
@@ -51,7 +53,8 @@ const createWindow = () => {
       },
     },
     {
-      label: " exit",
+      label: " Exit",
+      icon: __dirname + "/static/images/question-mark.png",
       click: () => {
         app.quit();
       },
