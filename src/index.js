@@ -38,19 +38,22 @@ const createWindow = () => {
     },
     {
       label: " setup",
+      icon: __dirname + "/static/images/icon.ico",
       click: () => {},
     },
     {
-      label: " open",
-      click: () => {
-        mainWindow.show();
+      label: " toggle",
+      // click: () => {
+      //   mainWindow.show();
+      // },
+      click: function () {
+        return mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
       },
     },
     {
       label: " exit",
       click: () => {
-        // app.quit();
-        app.quit(); //因为程序设定关闭为最小化，所以调用两次关闭，防止最大化时一次不能关闭的情况
+        app.quit();
       },
     },
   ];

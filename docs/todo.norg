@@ -1,3 +1,15 @@
+@document.meta
+title: todo
+description:
+authors: oeyoews
+categories:
+created: 2022-11-04
+updated: 2022-11-04
+version: 0.0.15
+@end
+
+= TOC
+
 - [ ] dele dev tools
 - [ ] use dist folder
 - [x] add .desktop file
@@ -8,3 +20,4 @@
 - [-] tmp folder
 - [x] docs for linux
 - [x] message
+- [-] resolution for different dpi
