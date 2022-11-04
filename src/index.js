@@ -34,11 +34,11 @@ const createWindow = () => {
   const trayMenuTemplate = [
     {
       label: " about",
-      click: () => { },
+      click: () => {},
     },
     {
       label: " setup",
-      click: () => { },
+      click: () => {},
     },
     {
       label: " open",
