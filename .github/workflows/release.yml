@@ -45,16 +45,3 @@ jobs:
           files: out/make/**/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Get Renderer Bundle Stats
-        uses: vio/bundle-stats-action@v1.3.0
-        with:
-          id: renderer
-          webpack-stats-path: "out/webpack-stats-renderer.json"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Get Main Bundle Stats
-        uses: vio/bundle-stats-action@v1.3.0
-        with:
-          id: main
-          webpack-stats-path: "out/webpack-stats-main.json"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
