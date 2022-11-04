@@ -3,7 +3,7 @@ index = index.html
 deb-dir = out/make/deb/x64
 
 build:
-	# @curl $(download-html)/$(index) -o src/$(index)
+	@curl $(download-html)/$(index) -o src/$(index)
 	@yarn make ## need install dpkg
 
 dev:

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Tray, Menu } = require("electron");
+const { app, BrowserWindow, Tray, Menu, Notification } = require("electron");
 const path = require("path");
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -11,6 +11,11 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     // frame: false,
     // transparent: true,
+    // backgroundColor: "#fff", // 窗口的背景颜色为十六进制值
+    // titleBarStyle: "hidden", //窗口标题栏的样式 (no support linux)
+    //网页功能的设置
+    // devTools: true, //是否开启 DevTools
+    // webSecurity: false//是否禁用同源策略
     width: 1200,
     height: 800,
     center: true, // 是否出现在屏幕居中的位置
@@ -18,32 +23,23 @@ const createWindow = () => {
     frame: true, //设置为 false 时可以创建一个无边框窗口
     resizable: true, //窗口是否可以改变尺寸
     autoHideMenuBar: true, //是否隐藏菜单栏
-    // backgroundColor: "#fff", // 窗口的背景颜色为十六进制值
-    titleBarStyle: "hidden", //窗口标题栏的样式
-    //网页功能的设置
-    // devTools: true, //是否开启 DevTools
-    // webSecurity: false//是否禁用同源策略
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      // preload: path.join(__dirname, "preload.js"),
+      // preload: path.join(__dirname, "notify.js"),
     },
   });
 
-  // and load the index.html of the app.
-  // mainWindow.loadURL("https://bing.com");
-  mainWindow.loadFile(path.join(__dirname, "index.html"));
+  const NOTIFICATION_TITLE = "neotw-app";
+  const NOTIFICATION_BODY = "🛸 Hello, neotw-app";
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
-};
+  function showNotification() {
+    new Notification({
+      title: NOTIFICATION_TITLE,
+      body: NOTIFICATION_BODY,
+    }).show();
+  }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on("ready", createWindow);
-
-let tray = null;
-app.whenReady().then(() => {
-  var trayMenuTemplate = [
+  const trayMenuTemplate = [
     {
       label: " open",
       click: () => {
@@ -59,21 +55,44 @@ app.whenReady().then(() => {
     },
   ];
 
-  tray = new Tray("static/images/icon.ico");
-  const contextMenu = Menu.buildFromTemplate(trayMenuTemplate);
-  /* const contextMenu = Menu.buildFromTemplate([
-    { label: "Item2", type: "radio" },
-    {
-      label: "exit",
-      click: () => {
-        win.destroy();
-      },
-    },
-  ]); */
-  // contextMenu.items[1].checked = false;
-  tray.setContextMenu(contextMenu);
-  tray.setToolTip("neotw-app");
-});
+  function traysetup() {
+    let tray = null;
+    tray = new Tray("static/images/icon.ico");
+    const contextMenu = Menu.buildFromTemplate(trayMenuTemplate);
+    tray.setContextMenu(contextMenu);
+  }
+
+  app.whenReady().then(traysetup).then(showNotification);
+
+  // and load the index.html of the app.
+  // mainWindow.loadURL("https://bing.com");
+  mainWindow.loadFile(path.join(__dirname, "index.html"));
+
+  const INCREMENT = 0.03;
+  const INTERVAL_DELAY = 100; // ms
+
+  /* let c = 0;
+  progressInterval = setInterval(() => {
+    // update progress bar to next value
+    // values between 0 and 1 will show progress, >1 will show indeterminate or stick at 100%
+    mainWindow.setProgressBar(c);
+
+    // increment or reset progress bar
+    if (c < 2) {
+      c += INCREMENT;
+    } else {
+      c = -INCREMENT * 5; // reset to a bit less than 0 to show reset state
+    }
+  }, INTERVAL_DELAY); */
+
+  // Open the DevTools.
+  // mainWindow.webContents.openDevTools();
+};
+
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.on("ready", createWindow);
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
