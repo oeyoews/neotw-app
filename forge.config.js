@@ -4,9 +4,9 @@ const { version, description } = packageJson;
 
 const config = {
   makers: [
-    {
-      name: "@electron-forge/maker-zip",
-    },
+    // {
+    //   name: "@electron-forge/maker-zip",
+    // },
     {
       name: "@rabbitholesyndrome/electron-forge-maker-portable",
       platforms: ["win32"],
