@@ -7,13 +7,13 @@ const config = {
     // {
     //   name: "@electron-forge/maker-zip",
     // },
-    {
-      name: "@rabbitholesyndrome/electron-forge-maker-portable",
-      platforms: ["win32"],
-      config: {
-        appId: "neotw-appp",
-      },
-    },
+    // {
+    //   name: "@rabbitholesyndrome/electron-forge-maker-portable",
+    //   platforms: ["win32"],
+    //   config: {
+    //     appId: "neotw-appp",
+    //   },
+    // },
     {
       name: "@electron-forge/maker-squirrel",
       platforms: ["win32"],
