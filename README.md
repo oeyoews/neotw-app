@@ -1,6 +1,17 @@
-# README
+# TOC
+
+<!-- toc -->
+
+- [SHOWCASES](#showcases)
+- [NOTICE](#notice)
+
+<!-- tocstop -->
+
+## SHOWCASES
 
 ![](img/1.png)
+
+## NOTICE
 
 - install dpkg for deb
 - use 19.0.0 (appimage require) or use nvm
