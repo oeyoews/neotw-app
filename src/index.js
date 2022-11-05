@@ -3,7 +3,7 @@ const path = require("path");
 
 const BaseWebPreferences = {
   nodeIntegration: true,
-  preload: path.resolve(__dirname, "js/window.js"),
+  // preload: path.resolve(__dirname, "js/window.js"),
 };
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -17,9 +17,9 @@ const createWindow = () => {
     title: "neotw-app",
     minHeight: 400,
     minWidth: 600,
-    fullscreen: true,
+    // fullscreen: true,
     fullscreenable: true,
-    frame: false,
+    // frame: false,
     titleBarStyle: "hiddenInset",
     show: true,
     width: 1200,
