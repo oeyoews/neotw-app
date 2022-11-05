@@ -1,6 +1,12 @@
-const { app, BrowserWindow, Tray, Menu, Notification } = require("electron");
+const {
+  app,
+  BrowserWindow,
+  Tray,
+  Menu,
+  Notification,
+  globalShortcut,
+} = require("electron");
 const path = require("path");
-require("update-electron-app")();
 
 const BaseWebPreferences = {
   nodeIntegration: true,
@@ -18,7 +24,7 @@ const createWindow = () => {
     title: "neotw-app",
     minHeight: 400,
     minWidth: 600,
-    // fullscreen: true,
+    fullscreen: true,
     fullscreenable: true,
     // frame: false,
     titleBarStyle: "hiddenInset",
@@ -35,12 +41,33 @@ const createWindow = () => {
   const NOTIFICATION_TITLE = "neotw-app";
   const NOTIFICATION_BODY = "🛸 Hello, neotw-app";
 
+  function vimElectron() {
+    globalShortcut.register("ESC", function () {
+      mainWindow.setFullScreen(false);
+    });
+
+    globalShortcut.register("Q", function () {
+      mainWindow.setFullScreen(false);
+    });
+
+    globalShortcut.register("F", function () {
+      if (mainWindow.isFullScreen()) {
+        mainWindow.setFullScreen(false);
+      } else {
+        mainWindow.setFullScreen(true);
+      }
+    });
+  }
+
   function showNotification() {
     new Notification({
       title: NOTIFICATION_TITLE,
       body: NOTIFICATION_BODY,
     }).show();
   }
+
+  // vim shortcuts
+  vimElectron();
 
   const trayMenuTemplate = [
     /* {
