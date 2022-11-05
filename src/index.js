@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Tray, Menu, Notification } = require("electron");
 const path = require("path");
+require("update-electron-app")();
 
 const BaseWebPreferences = {
   nodeIntegration: true,
