@@ -46,7 +46,7 @@ jobs:
         run: yarn
 
       - name: Make Package
-        run: yarn make
+        run: sudo apt install wine && yarn make
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
