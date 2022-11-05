@@ -1,5 +1,7 @@
 # README
 
+![](img/1.png)
+
 - install dpkg for deb
 - use 19.0.0 (appimage require) or use nvm
 - appimage generated need overwall
