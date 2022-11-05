@@ -16,7 +16,7 @@ const config = {
     // },
     {
       name: "@electron-forge/maker-squirrel",
-      platforms: ["win32"],
+      // platforms: ["win32"],
       config: {},
     },
     {

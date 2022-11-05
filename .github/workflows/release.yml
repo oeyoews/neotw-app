@@ -87,7 +87,7 @@ jobs:
         run: yarn
 
       - name: Make Windows (ia32)
-        run: yarn electron-forge make --platform=win32
+        run: yarn electron-forge make
         env:
           CSC_LINK: ${{ secrets.WIN_CERT }}
           CSC_KEY_PASSWORD: ${{ secrets.WIN_CERT_PASS }}
