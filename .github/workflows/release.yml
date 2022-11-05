@@ -28,12 +28,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          submodules: "true"
+          submodules: "false"
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 19.x
+          node-version: latest
 
       - name: Cache dependencies
         uses: actions/cache@v3
@@ -66,7 +66,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          submodules: "true"
+          submodules: "false"
 
       - name: Set up CV dependency for pngquant-bin
         uses: ilammy/msvc-dev-cmd@v1
@@ -74,7 +74,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 19.x
+          node-version: latest
 
       - name: Cache dependencies
         uses: actions/cache@v3

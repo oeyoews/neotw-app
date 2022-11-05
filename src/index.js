@@ -1,6 +1,11 @@
 const { app, BrowserWindow, Tray, Menu, Notification } = require("electron");
 const path = require("path");
 
+const BaseWebPreferences = {
+  nodeIntegration: true,
+  preload: path.resolve(__dirname, "js/window.js"),
+};
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
   app.quit();
@@ -8,17 +13,22 @@ if (require("electron-squirrel-startup")) {
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    // frame: false,
+    icon: __dirname + "/static/images/user.png",
+    title: "neotw-app",
+    minHeight: 400,
+    minWidth: 600,
+    fullscreen: true,
+    fullscreenable: true,
+    frame: false,
+    titleBarStyle: "hiddenInset",
+    show: true,
     width: 1200,
     height: 800,
     center: true, // 是否出现在屏幕居中的位置
     useContentSize: true,
-    frame: true, //设置为 false 时可以创建一个无边框窗口
     resizable: true, //窗口是否可以改变尺寸
     autoHideMenuBar: true, //是否隐藏菜单栏
-    webPreferences: {
-      // preload: path.join(__dirname, "notify.js"),
-    },
+    webPreferences: BaseWebPreferences,
   });
 
   const NOTIFICATION_TITLE = "neotw-app";
@@ -32,6 +42,16 @@ const createWindow = () => {
   }
 
   const trayMenuTemplate = [
+    /* {
+      label: "打开新窗口",
+      click: () => {
+        let child = new BrowserWindow({
+          parent: BrowserWindow.getFocusedWindow(),
+        });
+        child.loadURL("https://electronjs.org");
+        child.show();
+      },
+    }, */
     {
       label: " About",
       icon: __dirname + "/static/images/user.png",
@@ -69,11 +89,16 @@ const createWindow = () => {
     tray.setContextMenu(contextMenu);
   }
 
-  app.whenReady().then(traysetup).then(showNotification);
+  // app.whenReady().then(traysetup).then(showNotification);
+  app.whenReady().then(traysetup).then();
 
   // and load the index.html of the app.
   // mainWindow.loadURL("https://bing.com");
   mainWindow.loadFile(path.join(__dirname, "index.html"));
+
+  mainWindow.on("ready-to-show", () => {
+    mainWindow.show();
+  });
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();

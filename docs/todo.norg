@@ -10,6 +10,7 @@ version: 0.0.15
 
 = TOC
 
+- [-] exe unnormal
 - [-] bump.mjs
 - [ ] dele dev tools
 - [ ] use dist folder

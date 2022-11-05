@@ -18,7 +18,7 @@ dev:
 	@yarn start
 
 build:
-	# @curl $(download-html)/$(index) -o src/$(index)
+	@curl $(download-html)/$(index) -o src/$(index)
 	@yarn make ## need install dpkg
 	@cp PKGBUILD $(deb-dir)/PKGBUILD;
 	@make patch
