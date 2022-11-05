@@ -12,7 +12,7 @@ pre:
 	wget -qO- https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/Release.key | sudo apt-key add -
 	sudo sh -c 'echo "deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/ ./" > /etc/apt/sources.list.d/obs.list'
 	sudo apt update
-	sudo apt-get install --install-recommends winehq-stable
+	sudo apt-get install --install-recommends wine64 wine32
 
 dev:
 	@yarn start
