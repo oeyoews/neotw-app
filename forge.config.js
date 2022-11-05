@@ -14,21 +14,21 @@ const config = {
     //     appId: "neotw-appp",
     //   },
     // },
-    {
-      name: "@electron-forge/maker-squirrel",
-      // platforms: ["win32"],
-      config: {},
-    },
-    {
-      name: "@reforged/maker-appimage",
-      config: {
-        options: {
-          maintainer: "oeyoews",
-          homepage: "https://github.com/oeyoews",
-          icon: "src/static/images/icon.ico",
-        },
-      },
-    },
+    // {
+    //   name: "@electron-forge/maker-squirrel",
+    //   // platforms: ["win32"],
+    //   config: {},
+    // },
+    // {
+    //   name: "@reforged/maker-appimage",
+    //   config: {
+    //     options: {
+    //       maintainer: "oeyoews",
+    //       homepage: "https://github.com/oeyoews",
+    //       icon: "src/static/images/icon.ico",
+    //     },
+    //   },
+    // },
     {
       name: "@electron-forge/maker-deb",
       platforms: ["linux"],
