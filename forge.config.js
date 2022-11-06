@@ -17,8 +17,13 @@ const config = {
     {
       name: "@electron-forge/maker-squirrel",
       platforms: ["win32"],
-      config: {},
-    },
+      config: {
+        options: {
+          maintainer: "oeyoews",
+          homepage: "https://github.com/oeyoews",
+          icon: "src/static/images/icon.ico",
+        },
+      },
     // {
     //   name: "@reforged/maker-appimage",
     //   config: {
