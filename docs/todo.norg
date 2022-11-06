@@ -4,12 +4,14 @@ description:
 authors: oeyoews
 categories:
 created: 2022-11-04
-updated: 2022-11-05
+updated: 2022-11-07
 version: 0.0.15
 @end
 
 = TOC
 
+- [-] use msi to customize install path
+- [-] node-fetch warning
 - [-] exe unnormal
 - [-] bump.mjs
 - [ ] dele dev tools

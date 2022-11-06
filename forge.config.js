@@ -3,6 +3,11 @@ const packageJson = require("./package.json");
 const { version, description } = packageJson;
 
 const config = {
+  packagerConfig: {
+    name: "neotw-app",
+    executableName: "neotw-app",
+    icon: "src/static/images/icon.ico",
+  },
   makers: [
     // {
     //   name: "@electron-forge/maker-zip",
@@ -21,7 +26,8 @@ const config = {
         options: {
           maintainer: "oeyoews",
           homepage: "https://github.com/oeyoews",
-          icon: "src/static/images/icon.ico",
+          iconUrl: "src/static/images/icon.ico",
+          setupIcon: "src/static/images/icon.ico",
         },
       },
     },
@@ -42,7 +48,6 @@ const config = {
         options: {
           maintainer: "oeyoews",
           homepage: "https://github.com/oeyoews",
-          icon: "src/static/images/icon.ico",
         },
       },
     },

@@ -1932,11 +1932,6 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-head@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmmirror.com/head/-/head-1.0.0.tgz#1f835659ee00bfefa5b653e752377b4aca00d8d4"
-  integrity sha512-EXhzF1qs7C/o+bSwsl3wsV6MWBIr7pt94KPMF9Xm3DNv2dsRNHKJ0zwkiDCtzcO6SioyljD2dRETu01l7nkOiQ==
-
 homedir-polyfill@^1.0.1:
   version "1.0.3"
   resolved "https://registry.npmmirror.com/homedir-polyfill/-/homedir-polyfill-1.0.3.tgz#743298cef4e5af3e194161fbadcc2151d3a058e8"

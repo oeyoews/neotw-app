@@ -22,7 +22,6 @@
   "license": "MIT",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "head": "^1.0.0",
     "node-fetch": "^3.2.10",
     "request": "^2.88.2"
   },
