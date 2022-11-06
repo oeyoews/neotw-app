@@ -14,11 +14,11 @@ const config = {
     //     appId: "neotw-appp",
     //   },
     // },
-    // {
-    //   name: "@electron-forge/maker-squirrel",
-    //   // platforms: ["win32"],
-    //   config: {},
-    // },
+    {
+      name: "@electron-forge/maker-squirrel",
+      // platforms: ["win32"],
+      config: {},
+    },
     // {
     //   name: "@reforged/maker-appimage",
     //   config: {
