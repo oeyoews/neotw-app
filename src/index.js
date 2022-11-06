@@ -43,20 +43,20 @@ const createWindow = () => {
   const NOTIFICATION_BODY = "🛸 Hello, neotw-app";
 
   function vimElectron() {
-    globalShortcut.register("ESC", function() {
+    globalShortcut.register("ESC", function () {
       mainWindow.setFullScreen(false);
     });
 
-    globalShortcut.register("j+k", function() {
+    globalShortcut.register("j+k", function () {
       mainWindow.setFullScreen(false);
     });
 
-    globalShortcut.register("Q", function() {
+    globalShortcut.register("Q", function () {
       app.exit();
       // app.quit
     });
 
-    globalShortcut.register("F", function() {
+    globalShortcut.register("F", function () {
       if (mainWindow.isFullScreen()) {
         mainWindow.setFullScreen(false);
       } else {
@@ -89,12 +89,12 @@ const createWindow = () => {
     {
       label: " About",
       icon: __dirname + "/static/images/user.png",
-      click: () => { },
+      click: () => {},
     },
     {
       label: " Setup",
       icon: __dirname + "/static/images/icon.ico",
-      click: () => { },
+      click: () => {},
     },
     {
       label: " Toggle",
@@ -102,7 +102,7 @@ const createWindow = () => {
       // click: () => {
       //   mainWindow.show();
       // },
-      click: function() {
+      click: function () {
         return mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
       },
     },
@@ -122,6 +122,10 @@ const createWindow = () => {
     const contextMenu = Menu.buildFromTemplate(trayMenuTemplate);
     tray.setContextMenu(contextMenu);
   }
+
+  /**
+   * startup
+   */
 
   // app.whenReady().then(traysetup).then(showNotification);
   app.whenReady().then(traysetup).then();
@@ -159,6 +163,7 @@ const createWindow = () => {
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
 };
+// end
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
