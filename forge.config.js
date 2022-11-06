@@ -27,7 +27,7 @@ const config = {
           maintainer: "oeyoews",
           homepage: "https://github.com/oeyoews",
           iconUrl: "src/static/images/icon.ico",
-          setupIcon: "src/static/images/icon.ico",
+          // setupIcon: "src/static/images/icon.ico",
         },
       },
     },
