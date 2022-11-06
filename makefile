@@ -8,7 +8,8 @@ dev:
 
 build:
 	# @curl $(download-html)/$(index) -o src/$(index)
-	@python scripts/request.py
+	# @python scripts/request.py
+	@yarn make:patch
 	@yarn make ## need install dpkg
 	@cp PKGBUILD $(deb-dir)/PKGBUILD;
 	@make patch
