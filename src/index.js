@@ -43,20 +43,20 @@ const createWindow = () => {
   const NOTIFICATION_BODY = "🛸 Hello, neotw-app";
 
   function vimElectron() {
-    globalShortcut.register("ESC", function() {
+    globalShortcut.register("ESC", function () {
       mainWindow.setFullScreen(false);
     });
 
-    globalShortcut.register("j+k", function() {
+    globalShortcut.register("j+k", function () {
       mainWindow.setFullScreen(false);
     });
 
-    globalShortcut.register("Q", function() {
+    globalShortcut.register("Q", function () {
       app.exit();
       // app.quit
     });
 
-    globalShortcut.register("F", function() {
+    globalShortcut.register("F", function () {
       if (mainWindow.isFullScreen()) {
         mainWindow.setFullScreen(false);
       } else {
@@ -86,15 +86,16 @@ const createWindow = () => {
         child.show();
       },
     }, */
+    // TODO: icon size on windows
     {
       label: " About",
       icon: __dirname + "/static/images/user.png",
-      click: () => { },
+      click: () => {},
     },
     {
       label: " Setup",
       icon: __dirname + "/static/images/icon.ico",
-      click: () => { },
+      click: () => {},
     },
     {
       label: " Toggle",
@@ -102,7 +103,7 @@ const createWindow = () => {
       // click: () => {
       //   mainWindow.show();
       // },
-      click: function() {
+      click: function () {
         return mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
       },
     },

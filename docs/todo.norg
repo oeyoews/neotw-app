@@ -10,6 +10,7 @@ version: 0.0.15
 
 = TOC
 
+- [-] menu one window to large
 - [-] use msi to customize install path
 - [-] node-fetch warning
 - [-] exe unnormal
