@@ -24,6 +24,7 @@ const config = {
           icon: "src/static/images/icon.ico",
         },
       },
+    },
     // {
     //   name: "@reforged/maker-appimage",
     //   config: {
