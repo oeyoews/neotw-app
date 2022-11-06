@@ -96,7 +96,7 @@ jobs:
         #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Make Windows (x64)
-        run: yarn make:windows
+        run: yarn make:patch && yarn make
         env:
           CSC_LINK: ${{ secrets.WIN_CERT }}
           CSC_KEY_PASSWORD: ${{ secrets.WIN_CERT_PASS }}

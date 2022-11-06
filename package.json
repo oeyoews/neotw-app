@@ -8,6 +8,7 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
+    "make:patch": "node scripts/request.mjs",
     "make:windows": "electron-forge make && git clone --branch=gh-pages https://github.com/oeyoews/neotw.git --depth 1 && mv neotw/index.html src/index.html",
     "publish": "electron-forge publish"
   },
@@ -21,7 +22,9 @@
   "license": "MIT",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "node-fetch": "^3.2.10"
+    "head": "^1.0.0",
+    "node-fetch": "^3.2.10",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.75",

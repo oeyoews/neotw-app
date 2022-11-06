@@ -7,7 +7,7 @@ fetch("https://neotw.netlify.app/", {
 })
   .then((res) => res.buffer())
   .then((_) => {
-    writeFile("src/index.html", _, "binary", function (err) {
+    writeFile("src/index.html", _, "binary", function(err) {
       if (err) console.error(err);
       else console.log("success");
     });
