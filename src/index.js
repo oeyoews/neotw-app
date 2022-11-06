@@ -11,7 +11,7 @@ const path = require("path");
 
 const BaseWebPreferences = {
   nodeIntegration: true,
-  // preload: path.resolve(__dirname, "js/window.js"),
+  preload: path.resolve(__dirname, "js/window.js"),
 };
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -21,13 +21,13 @@ if (require("electron-squirrel-startup")) {
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    icon: __dirname + "/static/images/user.png",
+    icon: __dirname + "/static/images/icon.ico",
     title: "neotw-app",
     minHeight: 400,
     minWidth: 600,
     fullscreen: true,
     fullscreenable: true,
-    // frame: false,
+    frame: false,
     titleBarStyle: "hiddenInset",
     show: true,
     width: 1200,
@@ -43,20 +43,20 @@ const createWindow = () => {
   const NOTIFICATION_BODY = "🛸 Hello, neotw-app";
 
   function vimElectron() {
-    globalShortcut.register("ESC", function () {
+    globalShortcut.register("ESC", function() {
       mainWindow.setFullScreen(false);
     });
 
-    globalShortcut.register("j+k", function () {
+    globalShortcut.register("j+k", function() {
       mainWindow.setFullScreen(false);
     });
 
-    globalShortcut.register("Q", function () {
+    globalShortcut.register("Q", function() {
       app.exit();
       // app.quit
     });
 
-    globalShortcut.register("F", function () {
+    globalShortcut.register("F", function() {
       if (mainWindow.isFullScreen()) {
         mainWindow.setFullScreen(false);
       } else {
@@ -89,12 +89,12 @@ const createWindow = () => {
     {
       label: " About",
       icon: __dirname + "/static/images/user.png",
-      click: () => {},
+      click: () => { },
     },
     {
       label: " Setup",
       icon: __dirname + "/static/images/icon.ico",
-      click: () => {},
+      click: () => { },
     },
     {
       label: " Toggle",
@@ -102,7 +102,7 @@ const createWindow = () => {
       // click: () => {
       //   mainWindow.show();
       // },
-      click: function () {
+      click: function() {
         return mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
       },
     },
