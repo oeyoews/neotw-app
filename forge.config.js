@@ -26,8 +26,8 @@ const config = {
         options: {
           maintainer: "oeyoews",
           homepage: "https://github.com/oeyoews",
-          iconUrl: "src/static/images/icon.ico",
-          // setupIcon: "src/static/images/icon.ico",
+          iconUrl: "src/static/images/user.png",
+          setupIcon: "src/static/images/user.png",
         },
       },
     },
