@@ -19,14 +19,14 @@ const config = {
     //     appId: "neotw-appp",
     //   },
     // },
-    {
-      name: "@electron-forge/maker-wix",
-      icon: "src/static/images/icon.ico",
-      config: {
-        language: 1033,
-        manufacturer: "neotw-app",
-      },
-    },
+    // {
+    //   name: "@electron-forge/maker-wix",
+    //   icon: "src/static/images/icon.ico",
+    //   config: {
+    //     language: 1033,
+    //     manufacturer: "neotw-app",
+    //   },
+    // },
     {
       name: "@electron-forge/maker-squirrel",
       platforms: ["win32"],
