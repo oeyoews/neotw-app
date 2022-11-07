@@ -21,7 +21,7 @@ if (require("electron-squirrel-startup")) {
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    icon: __dirname + "/static/images/icon.ico",
+    icon: __dirname + "/static/images/user.png",
     title: "neotw-app",
     minHeight: 400,
     minWidth: 600,
@@ -43,20 +43,20 @@ const createWindow = () => {
   const NOTIFICATION_BODY = "🛸 Hello, neotw-app";
 
   function vimElectron() {
-    globalShortcut.register("ESC", function () {
+    globalShortcut.register("ESC", function() {
       mainWindow.setFullScreen(false);
     });
 
-    globalShortcut.register("j+k", function () {
+    globalShortcut.register("j+k", function() {
       mainWindow.setFullScreen(false);
     });
 
-    globalShortcut.register("Q", function () {
+    globalShortcut.register("Q", function() {
       app.exit();
       // app.quit
     });
 
-    globalShortcut.register("F", function () {
+    globalShortcut.register("F", function() {
       if (mainWindow.isFullScreen()) {
         mainWindow.setFullScreen(false);
       } else {
@@ -76,34 +76,21 @@ const createWindow = () => {
   vimElectron();
 
   const trayMenuTemplate = [
-    /* {
-      label: "打开新窗口",
-      click: () => {
-        let child = new BrowserWindow({
-          parent: BrowserWindow.getFocusedWindow(),
-        });
-        child.loadURL("https://electronjs.org");
-        child.show();
-      },
-    }, */
     // TODO: icon size on windows
     {
       label: " About",
       icon: __dirname + "/static/images/user.png",
-      click: () => {},
+      click: () => { },
     },
-    {
-      label: " Setup",
-      icon: __dirname + "/static/images/icon.ico",
-      click: () => {},
-    },
+    // {
+    //   label: " Setup",
+    //   icon: __dirname + "/static/images/icon.png",
+    //   click: () => {},
+    // },
     {
       label: " Toggle",
       icon: __dirname + "/static/images/contrast.png",
-      // click: () => {
-      //   mainWindow.show();
-      // },
-      click: function () {
+      click: function() {
         return mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
       },
     },
@@ -118,44 +105,17 @@ const createWindow = () => {
 
   function traysetup() {
     let tray = null;
-    // tray = new Tray("static/images/icon.ico");
-    tray = new Tray(path.join(__dirname, "/static/images/icon.ico"));
+    tray = new Tray(path.join(__dirname, "/static/images/user.png"));
     const contextMenu = Menu.buildFromTemplate(trayMenuTemplate);
     tray.setContextMenu(contextMenu);
   }
 
-  /**
-   * startup
-   */
-
-  // app.whenReady().then(traysetup).then(showNotification);
-  app.whenReady().then(traysetup).then();
+  app.whenReady().then(traysetup).then(showNotification);
+  // app.whenReady().then(traysetup).then();
 
   // and load the index.html of the app.
   // mainWindow.loadURL("https://bing.com");
   mainWindow.loadFile(path.join(__dirname, "index.html"));
-
-  /* mainWindow.on("close", (e) => {
-    dialog.showMessageBox(
-      {
-        type: "info",
-        title: "Information",
-        defaultId: 0,
-        message: "确定要关闭吗？",
-        buttons: ["最小化", "直接退出"],
-      },
-      (index) => {
-        if (index === 0) {
-          e.preventDefault(); //阻止默认行为，一定要有
-          mainWindow.minimize(); //调用 最小化实例方法
-        } else {
-          mainWindow = null;
-          //app.quit();	//不要用quit();试了会弹两次
-          app.exit(); //exit()直接关闭客户端，不会执行quit();
-        }
-      }
-    );
-  }); */
 
   mainWindow.on("ready-to-show", () => {
     mainWindow.show();

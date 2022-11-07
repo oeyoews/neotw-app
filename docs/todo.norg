@@ -4,12 +4,13 @@ description:
 authors: oeyoews
 categories:
 created: 2022-11-04
-updated: 2022-11-07
+updated: 2022-11-08
 version: 0.0.15
 @end
 
 = TOC
 
+- [-] notice ico file is bug
 - [-] menu one window to large
 - [-] use msi to customize install path
 - [-] node-fetch warning

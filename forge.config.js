@@ -6,7 +6,7 @@ const config = {
   packagerConfig: {
     name: "neotw-app",
     executableName: "neotw-app",
-    icon: "src/static/images/icon.ico",
+    // icon: "src/static/images/icon.ico",
   },
   makers: [
     // {
