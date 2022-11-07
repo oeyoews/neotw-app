@@ -20,6 +20,13 @@ const config = {
     //   },
     // },
     {
+      name: "@electron-forge/maker-wix",
+      config: {
+        language: 1033,
+        manufacturer: "neotw-app",
+      },
+    },
+    {
       name: "@electron-forge/maker-squirrel",
       platforms: ["win32"],
       config: {
