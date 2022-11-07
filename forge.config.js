@@ -21,6 +21,7 @@ const config = {
     // },
     {
       name: "@electron-forge/maker-wix",
+      icon: "src/static/images/icon.ico",
       config: {
         language: 1033,
         manufacturer: "neotw-app",
